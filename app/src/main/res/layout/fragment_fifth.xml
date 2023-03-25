@@ -202,9 +202,7 @@
                     android:text="Option 3" />
 
             </RadioGroup>
-
         </LinearLayout>
-
     </ScrollView>
 
     <com.google.android.material.button.MaterialButton
