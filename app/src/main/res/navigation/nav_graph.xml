@@ -44,5 +44,21 @@
         android:id="@+id/thirdFragment"
         android:name="com.falcon.careermap.ThirdFragment"
         android:label="@string/third_fragment_label"
-        />
+        >
+        <action
+            android:id="@+id/action_thirdFragment_to_fourthFragment"
+            app:destination="@id/fourthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.falcon.careermap.FourthFragment"
+        android:label="FourthFragment" >
+        <action
+            android:id="@+id/action_fourthFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fifthFragment"
+        android:name="com.falcon.careermap.FifthFragment"
+        android:label="FifthFragment" />
 </navigation>

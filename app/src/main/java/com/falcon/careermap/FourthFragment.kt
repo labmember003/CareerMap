@@ -26,7 +26,7 @@ class FourthFragment : Fragment() {
     ): View? {
         _binding = FragmentFourthBinding.inflate(inflater, container, false)
         binding.submitButton.setOnClickListener{
-            findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment)
+            findNavController().navigate(R.id.action_fourthFragment_to_fifthFragment)
         }
         return binding.root
     }

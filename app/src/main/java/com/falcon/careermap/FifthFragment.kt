@@ -1,16 +1,15 @@
 package com.falcon.careermap
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.falcon.careermap.databinding.FragmentFourthBinding
-import com.falcon.careermap.databinding.FragmentThirdBinding
+import com.falcon.careermap.databinding.FragmentFifthBinding
 
-class ThirdFragment : Fragment() {
-    private var _binding: FragmentThirdBinding? = null
+class FifthFragment : Fragment() {
+    private var _binding: FragmentFifthBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,11 +22,10 @@ class ThirdFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentThirdBinding.inflate(inflater, container, false)
+        _binding = FragmentFifthBinding.inflate(inflater, container, false)
         binding.submitButton.setOnClickListener{
-            findNavController().navigate(R.id.action_thirdFragment_to_fourthFragment)
+            findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment)
         }
         return binding.root
     }
-
 }
