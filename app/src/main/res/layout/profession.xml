@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/convertedPDF"
+            android:id="@+id/professionName"
             style="@style/TextAppearance.AppCompat.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/shareButton"
+            android:id="@+id/searchButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="0dp"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:src="@drawable/ic_baseline_info_24"
-            app:layout_constraintEnd_toStartOf="@+id/shareButton"
+            app:layout_constraintEnd_toStartOf="@+id/searchButton"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />

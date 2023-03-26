@@ -1,46 +1,40 @@
 package com.falcon.careermap
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.io.File
 
-class ConvertedPdfRcvAdapter(private val convertedPDFs: List<File>, private val context: Context, private val onContentClick : (File) -> Unit,
-                             private val shareFile : (File) -> Unit, private val deleteFile : (File) -> Unit)
-    : RecyclerView.Adapter<ConvertedPdfRcvAdapter.ExistingFontViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExistingFontViewHolder {
+class rcvProffesionListAdapter(private val professionList: List<String>, private val onContentClick : (String) -> Unit,
+                               private val searchProfession : (String) -> Unit) : RecyclerView.Adapter<rcvProffesionListAdapter.ProfessionViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfessionViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.existing_font, parent, false)
-        return ExistingFontViewHolder(view)
+        val view = inflater.inflate(R.layout.profession, parent, false)
+        return ProfessionViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ExistingFontViewHolder, position: Int) {
-        holder.convertedPDF.text = convertedPDFs[position].name
+    override fun onBindViewHolder(holder: ProfessionViewHolder, position: Int) {
+        holder.convertedPDF.text = professionList[position]
         holder.convertedPDF.setOnClickListener {
-            onContentClick(convertedPDFs[position])
+            onContentClick(professionList[position])
         }
         holder.previewImage.setOnClickListener {
-            onContentClick(convertedPDFs[position])
+            onContentClick(professionList[position])
         }
-        holder.shareButton.setOnClickListener {
-            shareFile(convertedPDFs[position])
+        holder.searchButton.setOnClickListener {
+            searchProfession(professionList[position])
         }
-        holder.deleteButton.setOnClickListener {
-            deleteFile(convertedPDFs[position])
-        }
+
     }
 
     override fun getItemCount(): Int {
-        return convertedPDFs.size
+        return professionList.size
     }
-    class ExistingFontViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val convertedPDF: TextView = itemView.findViewById(R.id.convertedPDF)
-        val shareButton: ImageView = itemView.findViewById(R.id.shareButton)
-        val deleteButton: ImageView = itemView.findViewById(R.id.deleteButton)
+    class ProfessionViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        val convertedPDF: TextView = itemView.findViewById(R.id.professionName)
         val previewImage: ImageView = itemView.findViewById(R.id.previewImage)
+        val searchButton: ImageView = itemView.findViewById(R.id.searchButton)
     }
 }
