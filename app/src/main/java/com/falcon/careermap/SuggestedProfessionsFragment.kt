@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.falcon.careermap.databinding.FragmentFifthBinding
 import com.falcon.careermap.databinding.FragmentSuggestedProfessionsBinding
@@ -26,13 +27,17 @@ class SuggestedProfessionsFragment : Fragment() {
     ): View? {
 
         _binding = FragmentSuggestedProfessionsBinding.inflate(inflater, container, false)
-        val proffessionList: List<String> = listOf("Doctor", "Doctor", "Doctor")
-        binding.rcvProffesionList.adapter = rcvProffesionListAdapter(proffessionList, ::onContentClick, ::searchProfession)
+        val proffessionList: List<String> = listOf("Dentist", "Audiologist", "Radiologic Technologist")
+        val proffessionDescriptorList : List<String> = listOf("Diagnose and treat dental problems and diseases.", "Diagnose and treat hearing and balance disorders.", "Perform diagnostic imaging tests and procedures, such as x-rays and CT scans.")
+        val proffessionLongDescriptorList : List<String> = listOf("meow", "meow", "meow")
+        binding.rcvProffesionList.adapter = rcvProffesionListAdapter(proffessionList, proffessionDescriptorList, proffessionLongDescriptorList,  ::onContentClick, ::searchProfession)
         binding.rcvProffesionList.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
     }
-    private fun onContentClick(proffessionName: String) {
-
+    private fun onContentClick(proffessionDescription: String) {
+        val b = Bundle()
+        b.putString("Details", proffessionDescription)
+        findNavController().navigate(R.id.action_suggestedProfessionsFragment_to_proffessionDetailsFragment, b)
     }
     private fun searchProfession(proffessionName: String) {
         val intent = Intent(Intent.ACTION_VIEW)

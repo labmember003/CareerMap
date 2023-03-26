@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_thirdFragment_to_fourthFragment"
             app:destination="@id/fourthFragment" />
+        <action
+            android:id="@+id/action_thirdFragment_to_networkFragment"
+            app:destination="@id/networkFragment" />
     </fragment>
     <fragment
         android:id="@+id/fourthFragment"
@@ -70,5 +73,24 @@
         android:id="@+id/suggestedProfessionsFragment"
         android:name="com.falcon.careermap.SuggestedProfessionsFragment"
         android:label="Suggested Professions"
-        tools:layout="@layout/fragment_suggested_professions" />
+        tools:layout="@layout/fragment_suggested_professions" >
+        <action
+            android:id="@+id/action_suggestedProfessionsFragment_to_proffessionDetailsFragment"
+            app:destination="@id/proffessionDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/proffessionDetailsFragment"
+        android:name="com.falcon.careermap.ProffessionDetailsFragment"
+        android:label="Proffession Details"
+        tools:layout="@layout/fragment_proffession_details" />
+    <fragment
+        android:id="@+id/professionDescriptionFragment"
+        android:name="com.falcon.careermap.ProfessionDescriptionFragment"
+        android:label="fragment_profession_description"
+        tools:layout="@layout/fragment_profession_description" />
+    <fragment
+        android:id="@+id/networkFragment"
+        android:name="com.falcon.careermap.NetworkFragment"
+        android:label="fragment_network"
+        tools:layout="@layout/fragment_network" />
 </navigation>

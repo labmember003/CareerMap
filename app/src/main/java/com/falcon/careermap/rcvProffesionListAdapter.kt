@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 
-class rcvProffesionListAdapter(private val professionList: List<String>, private val onContentClick : (String) -> Unit,
+class rcvProffesionListAdapter(private val professionList: List<String>, private val proffessionDescriptorList: List<String>,
+                               private val proffessionLongDescriptorList: List<String>,
+                               private val onContentClick : (String) -> Unit,
                                private val searchProfession : (String) -> Unit) : RecyclerView.Adapter<rcvProffesionListAdapter.ProfessionViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfessionViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -17,12 +19,13 @@ class rcvProffesionListAdapter(private val professionList: List<String>, private
     }
 
     override fun onBindViewHolder(holder: ProfessionViewHolder, position: Int) {
-        holder.convertedPDF.text = professionList[position]
-        holder.convertedPDF.setOnClickListener {
-            onContentClick(professionList[position])
+        holder.professionName.text = professionList[position]
+        holder.additionalInfoText.text = proffessionDescriptorList[position]
+        holder.professionName.setOnClickListener {
+            onContentClick(proffessionLongDescriptorList[position])
         }
         holder.previewImage.setOnClickListener {
-            onContentClick(professionList[position])
+            onContentClick(proffessionLongDescriptorList[position])
         }
         holder.searchButton.setOnClickListener {
             searchProfession(professionList[position])
@@ -40,7 +43,7 @@ class rcvProffesionListAdapter(private val professionList: List<String>, private
         return professionList.size
     }
     class ProfessionViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val convertedPDF: TextView = itemView.findViewById(R.id.professionName)
+        val professionName: TextView = itemView.findViewById(R.id.professionName)
         val previewImage: ImageView = itemView.findViewById(R.id.previewImage)
         val searchButton: ImageView = itemView.findViewById(R.id.searchButton)
         val infoButton: ImageView = itemView.findViewById(R.id.infoButton)
