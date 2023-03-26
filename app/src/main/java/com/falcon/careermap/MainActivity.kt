@@ -1,5 +1,8 @@
 package com.falcon.careermap
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +14,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import com.falcon.careermap.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -32,9 +36,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAnchorView(R.id.fab)
-                .setAction("Action", null).show()
+            composeEmail("Regarding App " + getString(R.string.app_name))
         }
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if(destination.id == R.id.loginFragment) {
@@ -65,5 +67,19 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    fun composeEmail(subject: String) {
+        val a = arrayOf("usarcompanion@gmail.com")
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:") // only email apps should handle this
+            putExtra(Intent.EXTRA_EMAIL, a)
+            putExtra(Intent.EXTRA_SUBJECT, subject)
+        }
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(this, "No Mail App Found", Toast.LENGTH_SHORT).show()
+        }
     }
 }
