@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.falcon.careermap.databinding.FragmentFifthBinding
 import com.falcon.careermap.databinding.FragmentSuggestedProfessionsBinding
 import java.io.File
@@ -27,6 +28,7 @@ class SuggestedProfessionsFragment : Fragment() {
         _binding = FragmentSuggestedProfessionsBinding.inflate(inflater, container, false)
         val proffessionList: List<String> = listOf("Doctor", "Doctor", "Doctor")
         binding.rcvProffesionList.adapter = rcvProffesionListAdapter(proffessionList, ::onContentClick, ::searchProfession)
+        binding.rcvProffesionList.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
     }
     private fun onContentClick(proffessionName: String) {

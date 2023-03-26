@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 
 class rcvProffesionListAdapter(private val professionList: List<String>, private val onContentClick : (String) -> Unit,
@@ -26,7 +27,13 @@ class rcvProffesionListAdapter(private val professionList: List<String>, private
         holder.searchButton.setOnClickListener {
             searchProfession(professionList[position])
         }
-
+        holder.infoButton.setOnClickListener {
+            if (holder.additionalInfoText.isVisible) {
+                holder.additionalInfoText.visibility = View.GONE
+            } else {
+                holder.additionalInfoText.visibility = View.VISIBLE
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,5 +43,7 @@ class rcvProffesionListAdapter(private val professionList: List<String>, private
         val convertedPDF: TextView = itemView.findViewById(R.id.professionName)
         val previewImage: ImageView = itemView.findViewById(R.id.previewImage)
         val searchButton: ImageView = itemView.findViewById(R.id.searchButton)
+        val infoButton: ImageView = itemView.findViewById(R.id.infoButton)
+        val additionalInfoText: TextView = itemView.findViewById(R.id.additionalInfo)
     }
 }
