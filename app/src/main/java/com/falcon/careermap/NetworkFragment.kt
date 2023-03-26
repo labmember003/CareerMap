@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.falcon.careermap.adapters.RcvContactProffesionalAdapter
+import com.falcon.careermap.adapters.RcvContactProffesionalAdapters
 import com.falcon.careermap.databinding.FragmentNetworkBinding
 
 class NetworkFragment : Fragment() {
@@ -25,14 +25,19 @@ class NetworkFragment : Fragment() {
         val professionalList: List<String> = listOf("Dr.Priya", "Dr Rajesh", "Dr Sanjay")
         val proffessionalPhoneNumberList : List<String> = listOf("+91 8800136151", "+91 8800136151", "+91 8800136151")
         val proffessionalMailIdList: List<String> = listOf("avishishtgupta@gmail.com", "avishishtgupta@gmail.com", "avishishtgupta@gmail.com")
-        binding.professionalContactList.adapter = RcvContactProffesionalAdapter(professionalList, proffessionalPhoneNumberList, proffessionalMailIdList,  ::onMailButtonClick, ::onSmsButtonClick)
+        binding.professionalContactList.adapter = RcvContactProffesionalAdapters(professionalList, proffessionalMailIdList, proffessionalPhoneNumberList,  ::onMailButtonClick, ::onSmsButtonClick)
         binding.professionalContactList.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
     }
     private fun onMailButtonClick(mailId: String) {
+        composeEmail("Queries Regarding Your Profession", mailId)
+    }
+    fun composeEmail(subject: String, mailId: String) {
+        val a = arrayOf(mailId)
         val intent = Intent(Intent.ACTION_SENDTO).apply {
-            data = Uri.parse("mailto:")
-            putExtra(Intent.EXTRA_EMAIL, mailId)
+            data = Uri.parse("mailto:") // only email apps should handle this
+            putExtra(Intent.EXTRA_EMAIL, a)
+            putExtra(Intent.EXTRA_SUBJECT, subject)
         }
         try {
             startActivity(intent)

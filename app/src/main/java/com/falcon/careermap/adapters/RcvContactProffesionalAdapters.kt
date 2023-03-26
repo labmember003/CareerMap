@@ -8,10 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.falcon.careermap.R
 
-class RcvContactProffesionalAdapter(private val professionalList: List<String>, private val proffessionalMailIdList: List<String>,
-                                    private val proffessionalPhoneNumberList: List<String>,
-                                    private val onMailButtonClick : (String) -> Unit,
-                                    private val onSmsButtonClick : (String) -> Unit) : RecyclerView.Adapter<RcvContactProffesionalAdapter.ProfessionViewHolder>() {
+class RcvContactProffesionalAdapters(private val professionalList: List<String>, private val proffessionalMailIdList: List<String>,
+                                     private val proffessionalPhoneNumberList: List<String>,
+                                     private val onMailButtonClick : (String) -> Unit,
+                                     private val onSmsButtonClick : (String) -> Unit) : RecyclerView.Adapter<RcvContactProffesionalAdapters.ProfessionViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfessionViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.professional_contact, parent, false)
