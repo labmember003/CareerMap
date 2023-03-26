@@ -128,81 +128,8 @@
                     android:text="Option 3" />
 
             </RadioGroup>
-
-            <TextView
-                android:id="@+id/question4_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Question 4"
-                android:textColor="@android:color/black"
-                android:textSize="24sp" />
-
-            <RadioGroup
-                android:id="@+id/answer4_radiogroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/answer4_1_radiobutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Option 1" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/answer4_2_radiobutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Option 2" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/answer4_3_radiobutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Option 3" />
-
-            </RadioGroup>
-
-
-
-            <TextView
-                android:id="@+id/question5_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Question 3"
-                android:textColor="@android:color/black"
-                android:textSize="24sp" />
-
-            <RadioGroup
-                android:id="@+id/answer5_radiogroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/answer5_1_radiobutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Option 1" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/answer5_2_radiobutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Option 2" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/answer5_3_radiobutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Option 3" />
-
-            </RadioGroup>
         </LinearLayout>
+
     </ScrollView>
 
     <com.google.android.material.button.MaterialButton
