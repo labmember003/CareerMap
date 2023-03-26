@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ProfessionDescriptionFragment">
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ProfessionDescriptionFragment"
+        android:padding="16dp"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:cardCornerRadius="30dp"
+            >
+            <TextView
+                android:id="@+id/tvProffessionDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="A profession is a type of occupation that requires specialized knowledge, training, and skills, typically obtained through formal education and/or on-the-job experience. It involves a commitment to a set of ethical principles and standards of conduct, as well as a dedication to ongoing learning and professional development.
+    Examples of professions include medicine, law, engineering, teaching, accounting, and architecture, among many others. Professions are often regulated by professional associations or governing bodies that establish standards of practice and ethical guidelines for their members.
+    "
+                android:textSize="20sp"
+                />
 
-
-</FrameLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</ScrollView>
