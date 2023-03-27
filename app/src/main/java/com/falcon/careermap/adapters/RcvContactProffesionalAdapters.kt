@@ -27,7 +27,6 @@ class RcvContactProffesionalAdapters(private val professionalList: List<String>,
             onSmsButtonClick(proffessionalPhoneNumberList[position])
         }
     }
-
     override fun getItemCount(): Int {
         return professionalList.size
     }

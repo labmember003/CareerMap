@@ -20,7 +20,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_margin="10dp"
-            android:src="@drawable/ic_baseline_person_24"
+            android:src="@drawable/man"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,10 +42,10 @@
 
         <ImageView
             android:id="@+id/mailButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:padding="10dp"
-            android:src="@drawable/ic_baseline_mail_24"
+            android:src="@drawable/email"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,10 +53,10 @@
 
         <ImageView
             android:id="@+id/smsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:padding="10dp"
-            android:src="@drawable/ic_baseline_textsms_24"
+            android:src="@drawable/chat"
             app:layout_constraintEnd_toStartOf="@+id/mailButton"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
