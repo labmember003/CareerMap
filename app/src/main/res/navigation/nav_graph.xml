@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_SecondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -51,6 +54,9 @@
         <action
             android:id="@+id/action_thirdFragment_to_networkFragment"
             app:destination="@id/networkFragment" />
+        <action
+            android:id="@+id/action_thirdFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
     </fragment>
     <fragment
         android:id="@+id/fourthFragment"

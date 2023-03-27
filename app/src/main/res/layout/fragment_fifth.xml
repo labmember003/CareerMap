@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:text="Question 1"
                 android:textColor="@android:color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                />
 
             <RadioGroup
                 android:id="@+id/answer1_radiogroup"
@@ -63,7 +64,8 @@
                 android:layout_height="wrap_content"
                 android:text="Question 2"
                 android:textColor="@android:color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                />
 
             <RadioGroup
                 android:id="@+id/answer2_radiogroup"
@@ -99,7 +101,8 @@
                 android:layout_height="wrap_content"
                 android:text="Question 3"
                 android:textColor="@android:color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                />
 
             <RadioGroup
                 android:id="@+id/answer3_radiogroup"

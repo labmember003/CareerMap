@@ -21,8 +21,9 @@ class SecondFragment : Fragment() {
 
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         binding.submitButton.setOnClickListener{
-            findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment)
+            findNavController().navigate(R.id.action_SecondFragment_to_fifthFragment)
         }
+        updateValues()
         return binding.root
 
     }
@@ -31,5 +32,27 @@ class SecondFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    private fun updateValues() {
+        // QUESTIONS
+        binding.question1Textview.text = "Q1: Are you good at communicating with others?"
+        binding.question2Textview.text = "Q2: Are you detail-oriented?"
+        binding.question3Textview.text = "Q3: Are you comfortable working with advanced technology?"
+
+        //Q1 ANSWERS
+        binding.answer11Radiobutton.text= "Yes"
+        binding.answer12Radiobutton.text= "No"
+        binding.answer13Radiobutton.text= "Somewhat"
+
+        //Q2 ANSWERS
+        binding.answer21Radiobutton.text = "Yes"
+        binding.answer22Radiobutton.text = "No"
+        binding.answer23Radiobutton.text = "Somewhat"
+
+        //Q3 ANSWERS
+        binding.answer31Radiobutton.text = "Yes"
+        binding.answer32Radiobutton.text = "No"
+        binding.answer33Radiobutton.text = "Somewhat"
+
     }
 }
