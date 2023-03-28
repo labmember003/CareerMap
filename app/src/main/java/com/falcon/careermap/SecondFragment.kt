@@ -1,11 +1,13 @@
 package com.falcon.careermap
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.falcon.careermap.adapters.RcvQuestionnaire
 import com.falcon.careermap.databinding.FragmentSecondBinding
 
 
@@ -18,12 +20,20 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         binding.submitButton.setOnClickListener{
-            findNavController().navigate(R.id.action_SecondFragment_to_fifthFragment)
+            findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment)
         }
-        updateValues()
+        val questionList = listOf("Q1: Which of the following fields interests you the most?",
+            "Q2: Do you enjoy working with people directly or indirectly?",
+            "Q3: Do you prefer a job that requires more hands-on work or more technical work?"
+        )
+        val question1Answers = listOf("Healthcare", "Technology", "Science")
+        val question2Answers = listOf("Directly", "Indirectly", "It does not matter")
+        val question3Answers = listOf("Hands-on", "Technical", "Both")
+        val answerList = listOf(question1Answers, question2Answers, question3Answers)
+        binding.questionRCV.adapter = RcvQuestionnaire(questionList, answerList)
+        binding.questionRCV.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
 
     }
@@ -33,26 +43,6 @@ class SecondFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    private fun updateValues() {
-        // QUESTIONS
-        binding.question1Textview.text = "Q1: Are you good at communicating with others?"
-        binding.question2Textview.text = "Q2: Are you detail-oriented?"
-        binding.question3Textview.text = "Q3: Are you comfortable working with advanced technology?"
 
-        //Q1 ANSWERS
-        binding.answer11Radiobutton.text= "Yes"
-        binding.answer12Radiobutton.text= "No"
-        binding.answer13Radiobutton.text= "Somewhat"
 
-        //Q2 ANSWERS
-        binding.answer21Radiobutton.text = "Yes"
-        binding.answer22Radiobutton.text = "No"
-        binding.answer23Radiobutton.text = "Somewhat"
-
-        //Q3 ANSWERS
-        binding.answer31Radiobutton.text = "Yes"
-        binding.answer32Radiobutton.text = "No"
-        binding.answer33Radiobutton.text = "Somewhat"
-
-    }
 }

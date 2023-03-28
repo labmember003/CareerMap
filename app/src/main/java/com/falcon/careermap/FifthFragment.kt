@@ -6,46 +6,34 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.falcon.careermap.adapters.RcvQuestionnaire
 import com.falcon.careermap.databinding.FragmentFifthBinding
 
 class FifthFragment : Fragment() {
     private var _binding: FragmentFifthBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFifthBinding.inflate(inflater, container, false)
         binding.submitButton.setOnClickListener{
             findNavController().navigate(R.id.action_fifthFragment_to_suggestedProfessionsFragment)
         }
-        updateValues()
+        val questionList = listOf("Q1: Which of the following fields interests you the most?",
+            "Q2: Do you enjoy working with people directly or indirectly?",
+            "Q3: Do you prefer a job that requires more hands-on work or more technical work?"
+        )
+        val question1Answers = listOf("Healthcare", "Technology", "Science")
+        val question2Answers = listOf("Directly", "Indirectly", "It does not matter")
+        val question3Answers = listOf("Hands-on", "Technical", "Both")
+        val answerList = listOf(question1Answers, question2Answers, question3Answers)
+        binding.questionRCV.adapter = RcvQuestionnaire(questionList, answerList)
+        binding.questionRCV.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
-    }
-    private fun updateValues() {
-        // QUESTIONS
-        binding.question1Textview.text = "Q1: What is the primary focus of your work?"
-        binding.question2Textview.text = "Q2: Which of the following is a common procedure in your field?"
-        binding.question3Textview.text = "Q3: Which of the following is an important skill for your job?"
-
-        //Q1 ANSWERS
-        binding.answer11Radiobutton.text= "Diagnosing and treating dental conditions"
-        binding.answer12Radiobutton.text= "Diagnosing and treating hearing and balance disorders"
-        binding.answer13Radiobutton.text= "Operating imaging equipment to create diagnostic images"
-
-        //Q2 ANSWERS
-        binding.answer21Radiobutton.text= "Filling a cavity"
-        binding.answer22Radiobutton.text= "Conducting a hearing test"
-        binding.answer23Radiobutton.text= "Performing an X-ray"
-
-        //Q3 ANSWERS
-        binding.answer31Radiobutton.text = "Manual dexterity"
-        binding.answer32Radiobutton.text = "Good communication skills"
-        binding.answer33Radiobutton.text = "Technical expertise in operating imaging equipment"
 
     }
 }
