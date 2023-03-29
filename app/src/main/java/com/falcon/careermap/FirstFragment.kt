@@ -31,7 +31,7 @@ class FirstFragment : Fragment() {
         val question2Answers = listOf("Directly", "Indirectly", "It does not matter")
         val question3Answers = listOf("Hands-on", "Technical", "Both")
         val answerList = listOf(question1Answers, question2Answers, question3Answers)
-        binding.questionRCV.adapter = RcvQuestionnaire(questionList, answerList)
+        binding.questionRCV.adapter = RcvQuestionnaire(questionList, answerList, requireContext().applicationContext)
         binding.questionRCV.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
 
