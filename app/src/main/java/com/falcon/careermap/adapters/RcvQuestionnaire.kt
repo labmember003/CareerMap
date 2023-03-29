@@ -1,7 +1,6 @@
 package com.falcon.careermap.adapters
 
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +17,11 @@ class RcvQuestionnaire(private val questionList: List<String>, private val answe
                         */
                        ) : RecyclerView.Adapter<RcvQuestionnaire.QuestionViewHolder>() {
     private var view = View(context)
+    private var answerLayout = View(context)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         view = inflater.inflate(R.layout.question, parent, false)
+        answerLayout = inflater.inflate(R.layout.answer_layout, parent, false)
         return QuestionViewHolder(view)
     }
 
@@ -28,15 +29,16 @@ class RcvQuestionnaire(private val questionList: List<String>, private val answe
         val linearLayout = view.findViewById<LinearLayout>(R.id.question_LL)
 
         // Create a new TextView and set its properties
-        val textView = TextView(context)
-        textView.text = "Hello World!"
-        textView.setTextColor(Color.BLACK)
-        textView.textSize = 35F
+//        val textView = TextView(context)
+//        textView.text = "Hello World!"
+//        textView.setTextColor(Color.BLACK)
+//        textView.textSize = 35F
 
-        linearLayout.addView(textView)
+        answerLayout.findViewById<MaterialRadioButton>(R.id.answer_1_radiobutton).text = "meow"
+        linearLayout.addView(answerLayout)
 
         holder.question.text = questionList[position]
-        val numberOfAnswers = answerList[position].size
+
         holder.answer1.text = answerList[position][0]
         holder.answer2.text = answerList[position][1]
         holder.answer3.text = answerList[position][2]
