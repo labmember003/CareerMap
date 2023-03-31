@@ -1,6 +1,7 @@
 package com.falcon.careermap.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,15 +30,32 @@ class RcvQuestionnaire(private val questionList: List<String>, private val answe
         val linearLayout = view.findViewById<LinearLayout>(R.id.question_LL)
 
         // Create a new TextView and set its properties
-//        val textView = TextView(context)
-//        textView.text = "Hello World!"
-//        textView.setTextColor(Color.BLACK)
-//        textView.textSize = 35F
 
-        answerLayout.findViewById<MaterialRadioButton>(R.id.answer_1_radiobutton).text = "meow"
-        linearLayout.addView(answerLayout)
+        val numberOfAnswers = answerList[position].size
+        for (i in 1 .. numberOfAnswers) {
+            val textView = TextView(context)
+            textView.text = "Hello World!"
+            textView.setTextColor(Color.BLACK)
+            textView.textSize = 35F
+            holder.question.text = questionList[position]
+            linearLayout.addView(textView)
+        }
+//        answerLayout.findViewById<MaterialRadioButton>(R.id.answer_1_radiobutton).text = "meow"
+        for (i in 1 .. numberOfAnswers) {
+            val materialRadioButton = MaterialRadioButton(context)
+            materialRadioButton.text = "Hello World!"
+            materialRadioButton.setTextColor(Color.BLACK)
+            materialRadioButton.textSize = 35F
+            holder.question.text = questionList[position]
+            linearLayout.addView(materialRadioButton)
+        }
+        for (i in 1 .. numberOfAnswers) {
+            answerLayout.findViewById<MaterialRadioButton>(R.id.answer_1_radiobutton).text = "meow"
+            linearLayout.addView(answerLayout)
+        }
 
-        holder.question.text = questionList[position]
+
+
 
         holder.answer1.text = answerList[position][0]
         holder.answer2.text = answerList[position][1]
