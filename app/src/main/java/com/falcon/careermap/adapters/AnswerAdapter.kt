@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.falcon.careermap.R
 
 
-class AnswerAdapter(private val answerList: List<String>) : RecyclerView.Adapter<AnswerAdapter.AnswerViewHolder>() {
+class AnswerAdapter(private val answerList: List<String>, private val onItemSelected : (Int, Int, Boolean) -> Unit, private val questionNumber: Int)
+    : RecyclerView.Adapter<AnswerAdapter.AnswerViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.answer_single, parent, false)
@@ -17,6 +18,9 @@ class AnswerAdapter(private val answerList: List<String>) : RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: AnswerViewHolder, position: Int) {
         holder.answerText.text = answerList[position]
+        holder.answerText.setOnClickListener {
+            onItemSelected(questionNumber, position, holder.answerText.isSelected)
+        }
     }
 
     override fun getItemCount(): Int {

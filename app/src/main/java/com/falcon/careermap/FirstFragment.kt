@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.falcon.careermap.adapters.RcvQuestionnaire
@@ -31,10 +32,14 @@ class FirstFragment : Fragment() {
         val question2Answers = listOf("Directly", "Indirectly", "It does not matter")
         val question3Answers = listOf("Hands-on", "Technical", "Both")
         val answerList = listOf(question1Answers, question2Answers, question3Answers)
-        binding.questionRCV.adapter = RcvQuestionnaire(questionList, answerList, requireContext().applicationContext)
+        binding.questionRCV.adapter = RcvQuestionnaire(questionList, answerList, requireContext().applicationContext, ::onItemSelect)
         binding.questionRCV.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
 
+    }
+
+    private fun onItemSelect(questionNumber: Int, answerNumber: Int, isSelected: Boolean) {
+        Toast.makeText(requireContext(), "$questionNumber&$answerNumber", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

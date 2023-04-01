@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.falcon.careermap.R
 
 class RcvQuestionnaire(private val questionList: List<String>, private val answerList: List<List<String>>, private val context : Context,
+                       private val onItemSelect : (Int, Int, Boolean) -> Unit
                        ) : RecyclerView.Adapter<RcvQuestionnaire.QuestionViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -20,8 +21,11 @@ class RcvQuestionnaire(private val questionList: List<String>, private val answe
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         holder.question.text = questionList[position]
         val listOfAnswer = answerList[position]
-        holder.answerList.adapter = AnswerAdapter(listOfAnswer)
+        holder.answerList.adapter = AnswerAdapter(listOfAnswer,::onItemSelected, position)
         holder.answerList.layoutManager = LinearLayoutManager(context)
+    }
+    private fun onItemSelected(questionNumber: Int, answerIndex: Int, isSelected: Boolean) {
+        onItemSelect(questionNumber, answerIndex, isSelected)
     }
     override fun getItemCount(): Int {
         return questionList.size
