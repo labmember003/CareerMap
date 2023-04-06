@@ -30,8 +30,12 @@ class ThirdFragment : Fragment() {
         val question1Answers = listOf("Healthcare", "Technology", "Science")
         val question2Answers = listOf("Directly", "Indirectly", "It does not matter")
         val question3Answers = listOf("Hands-on", "Technical", "Both")
-        val answerList = listOf(question1Answers, question2Answers, question3Answers)
-        binding.questionRCV.adapter = RcvQuestionnaire(ArrayList(listOf("")), answerList, requireContext().applicationContext, ::onItemSelect)
+//        val answerList = listOf(question1Answers, question2Answers, question3Answers)
+        val answerList = arguments?.getSerializable("answerList") as? ArrayList<ArrayList<String>>
+        binding.questionRCV.adapter = answerList?.let {
+            RcvQuestionnaire(ArrayList(listOf("")),
+                it, requireContext().applicationContext, ::onItemSelect)
+        }
         binding.questionRCV.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
 

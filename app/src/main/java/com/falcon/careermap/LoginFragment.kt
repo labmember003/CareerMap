@@ -25,12 +25,17 @@ class LoginFragment : Fragment() {
             "Q2: Do you enjoy working with people directly or indirectly?",
             "Q3: Do you prefer a job that requires more hands-on work or more technical work?"
         ))
-        val question1Answers = listOf("Healthcare", "Technology", "Science")
-        val question2Answers = listOf("Directly", "Indirectly", "It does not matter")
-        val question3Answers = listOf("Hands-on", "Technical", "Both")
-        val answerList = listOf(question1Answers, question2Answers, question3Answers)
+        val answerList = ArrayList<ArrayList<String>>()
+        answerList.add(ArrayList(listOf("Healthcare", "Technology", "Science")))
+        answerList.add(ArrayList(listOf("Directly", "Indirectly", "It does not matter")))
+        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
+//        val question1Answers = listOf("Healthcare", "Technology", "Science")
+//        val question2Answers = listOf("Directly", "Indirectly", "It does not matter")
+//        val question3Answers = listOf("Hands-on", "Technical", "Both")
+//        val answerList = listOf(question1Answers, question2Answers, question3Answers)
         val bundle = Bundle()
         bundle.putStringArrayList("questionList", questionList)
+        bundle.putSerializable("answerList", answerList)
         binding.loginButton.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_FirstFragment, bundle)
         }
