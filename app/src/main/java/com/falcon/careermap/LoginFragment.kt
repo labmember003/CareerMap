@@ -20,8 +20,19 @@ class LoginFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        val questionList = ArrayList(listOf("Q1: Which of the following fields interests you the most?",
+            "Q2: Do you enjoy working with people directly or indirectly?",
+            "Q3: Do you prefer a job that requires more hands-on work or more technical work?"
+        ))
+        val question1Answers = listOf("Healthcare", "Technology", "Science")
+        val question2Answers = listOf("Directly", "Indirectly", "It does not matter")
+        val question3Answers = listOf("Hands-on", "Technical", "Both")
+        val answerList = listOf(question1Answers, question2Answers, question3Answers)
+        val bundle = Bundle()
+        bundle.putStringArrayList("questionList", questionList)
         binding.loginButton.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_FirstFragment, bundle)
         }
         return binding.root
     }

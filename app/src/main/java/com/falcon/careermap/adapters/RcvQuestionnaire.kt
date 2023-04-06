@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.falcon.careermap.R
 
-class RcvQuestionnaire(private val questionList: List<String>, private val answerList: List<List<String>>, private val context : Context,
+class RcvQuestionnaire(private val questionList: ArrayList<String>, private val answerList: List<List<String>>, private val context : Context,
                        private val onItemSelect : (Int, Int, Boolean) -> Unit
                        ) : RecyclerView.Adapter<RcvQuestionnaire.QuestionViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {

@@ -24,15 +24,16 @@ class FirstFragment : Fragment() {
         binding.submitButton.setOnClickListener{
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
-        val questionList = listOf("Q1: Which of the following fields interests you the most?",
-            "Q2: Do you enjoy working with people directly or indirectly?",
-            "Q3: Do you prefer a job that requires more hands-on work or more technical work?"
-        )
+//        val questionList = ArrayList(listOf("Q1: Which of the following fields interests you the most?",
+//            "Q2: Do you enjoy working with people directly or indirectly?",
+//            "Q3: Do you prefer a job that requires more hands-on work or more technical work?"
+//        ))
+        val questionList = arguments?.getStringArrayList("questionList")
         val question1Answers = listOf("Healthcare", "Technology", "Science")
         val question2Answers = listOf("Directly", "Indirectly", "It does not matter")
         val question3Answers = listOf("Hands-on", "Technical", "Both")
         val answerList = listOf(question1Answers, question2Answers, question3Answers)
-        binding.questionRCV.adapter = RcvQuestionnaire(questionList, answerList, requireContext().applicationContext, ::onItemSelect)
+        binding.questionRCV.adapter = RcvQuestionnaire(questionList?:ArrayList(listOf("")), answerList, requireContext().applicationContext, ::onItemSelect)
         binding.questionRCV.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
 
