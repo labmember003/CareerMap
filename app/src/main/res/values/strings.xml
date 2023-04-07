@@ -2,11 +2,7 @@
     <string name="app_name">CareerMap</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Questionnaire (1/4)</string>
-    <string name="second_fragment_label">Questionnaire (2/4)</string>
-    <string name="third_fragment_label">Questionnaire (3/4)</string>
-    <string name="fourth_fragment_label">Questionnaire (4567/4)</string>
-    <string name="fivth_fragment_label">Questionnaire (4/4)</string>
+    <string name="first_fragment_label">CareerMap</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 

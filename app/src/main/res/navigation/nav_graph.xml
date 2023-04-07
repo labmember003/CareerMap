@@ -10,29 +10,9 @@
         android:name="com.falcon.careermap.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
         <action
             android:id="@+id/action_FirstFragment_to_suggestedProfessionsFragment"
             app:destination="@id/suggestedProfessionsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.falcon.careermap.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-        <action
-            android:id="@+id/action_SecondFragment_to_thirdFragment"
-            app:destination="@id/thirdFragment" />
-        <action
-            android:id="@+id/action_SecondFragment_to_fifthFragment"
-            app:destination="@id/fifthFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -40,31 +20,8 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/thirdFragment"
-        android:name="com.falcon.careermap.ThirdFragment"
-        android:label="@string/third_fragment_label"
-        >
-        <action
-            android:id="@+id/action_thirdFragment_to_networkFragment"
-            app:destination="@id/networkFragment" />
-        <action
-            android:id="@+id/action_thirdFragment_to_fifthFragment"
-            app:destination="@id/fifthFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/fifthFragment"
-        android:name="com.falcon.careermap.FifthFragment"
-        android:label="@string/fivth_fragment_label" >
-        <action
-            android:id="@+id/action_fifthFragment_to_suggestedProfessionsFragment"
-            app:destination="@id/suggestedProfessionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/suggestedProfessionsFragment"
