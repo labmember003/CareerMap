@@ -1,6 +1,7 @@
 package com.falcon.careermap.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,13 +24,14 @@ class RcvQuestionnaire(private val questionList: ArrayList<String>, private val 
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         holder.question.text = questionList[position]
-        holder.holderLayout.removeAllViews()
+        holder.contentLL.removeAllViews()
         val listOfAnswer = answerList[position]
-        holder.holderLayout.addView(holder.question)
         for (i in 1..listOfAnswer.size) {
             val answerView = LayoutInflater.from(holder.itemView.context).inflate(R.layout.answer_single, holder.itemView as ViewGroup, false)
-            val parentLayout = holder.holderLayout
-            parentLayout.addView(answerView)
+            answerView.findViewById<MaterialRadioButton>(R.id.answer_single_MRB).text = listOfAnswer[i - 1]
+//             SET ANSWER AND SAVE IT AND RENDER IT AGGAIN IN ONBINDVIEWHOLDER (user niche jaake upar aata hai tho answers gayab ho jaate hai)
+//            val parentLayout = holder.holderLayout
+            holder.contentLL.addView(answerView)
         }
     }
     private fun onItemSelected(questionNumber: Int, answerIndex: Int, isSelected: Boolean) {
@@ -41,5 +43,6 @@ class RcvQuestionnaire(private val questionList: ArrayList<String>, private val 
     class QuestionViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val question: TextView = itemView.findViewById(R.id.question_textview)
         val holderLayout: LinearLayout = itemView.findViewById(R.id.question_LL)
+        val contentLL: LinearLayout = itemView.findViewById(R.id.contentLL)
     }
 }
