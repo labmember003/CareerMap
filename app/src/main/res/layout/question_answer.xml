@@ -13,12 +13,18 @@
         android:text="Question Number"
         android:textColor="@android:color/black"
         android:textSize="24sp" />
-    <LinearLayout
-        android:id="@+id/contentLL"
+<!--    <LinearLayout-->
+<!--        android:id="@+id/contentLL"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+<!--    </LinearLayout>-->
+    <RadioGroup
+        android:id="@+id/content_radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    </LinearLayout>
+    </RadioGroup>
 
 
 </LinearLayout>

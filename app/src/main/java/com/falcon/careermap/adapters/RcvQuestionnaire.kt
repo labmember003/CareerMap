@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.falcon.careermap.R
@@ -24,14 +25,14 @@ class RcvQuestionnaire(private val questionList: ArrayList<String>, private val 
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         holder.question.text = questionList[position]
-        holder.contentLL.removeAllViews()
+        holder.radioGroup.removeAllViews()
         val listOfAnswer = answerList[position]
         for (i in 1..listOfAnswer.size) {
             val answerView = LayoutInflater.from(holder.itemView.context).inflate(R.layout.answer_single, holder.itemView as ViewGroup, false)
             answerView.findViewById<MaterialRadioButton>(R.id.answer_single_MRB).text = listOfAnswer[i - 1]
 //             SET ANSWER AND SAVE IT AND RENDER IT AGGAIN IN ONBINDVIEWHOLDER (user niche jaake upar aata hai tho answers gayab ho jaate hai)
 //            val parentLayout = holder.holderLayout
-            holder.contentLL.addView(answerView)
+            holder.radioGroup.addView(answerView)
         }
     }
     private fun onItemSelected(questionNumber: Int, answerIndex: Int, isSelected: Boolean) {
@@ -43,6 +44,8 @@ class RcvQuestionnaire(private val questionList: ArrayList<String>, private val 
     class QuestionViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val question: TextView = itemView.findViewById(R.id.question_textview)
         val holderLayout: LinearLayout = itemView.findViewById(R.id.question_LL)
-        val contentLL: LinearLayout = itemView.findViewById(R.id.contentLL)
+
+        val radioGroup: RadioGroup = itemView.findViewById(R.id.content_radio_group)
+//        val contentLL: LinearLayout = itemView.findViewById(R.id.contentLL)
     }
 }
