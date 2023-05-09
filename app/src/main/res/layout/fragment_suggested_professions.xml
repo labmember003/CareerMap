@@ -55,6 +55,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />
+        <TextView
+            android:id="@+id/detailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rcvProffesionList"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="See Detailed Analysis"
+            android:textColor="@color/hyperlink"
+            style="@style/MaterialAlertDialog.Material3.Body.Text"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,28 +19,29 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+//        findNavController().navigate(R.id.action_loginFragment_to_analysisFragment)
         val questionList = arrayListOf("Q1: Which of the following fields interests you the most?",
             "Q2: Do you enjoy working with people directly or indirectly?",
             "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
-            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
-            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
-            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
-            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
-            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
-            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
-            "Q3: Do you prefer a job that requires more hands-on work or more technical work?"
+//            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
+//            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
+//            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
+//            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
+//            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
+//            "Q3: Do you prefer a job that requires more hands-on work or more technical work?",
+//            "Q3: Do you prefer a job that requires more hands-on work or more technical work?"
         )
         val answerList = ArrayList<ArrayList<String>>()
         answerList.add(ArrayList(listOf("Healthcare", "Technology", "Science")))
         answerList.add(ArrayList(listOf("Directly", "Indirectly", "It does not matter")))
         answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
-        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
-        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
-        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
-        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
-        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
-        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
-        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
+//        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
+//        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
+//        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
+//        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
+//        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
+//        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
+//        answerList.add(ArrayList(listOf("Hands-on", "Technical", "Both")))
         val bundle = Bundle()
         bundle.putStringArrayList("questionList", questionList)
         bundle.putSerializable("answerList", answerList)

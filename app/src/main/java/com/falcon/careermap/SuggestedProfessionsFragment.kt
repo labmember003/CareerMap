@@ -45,6 +45,9 @@ class SuggestedProfessionsFragment : Fragment() {
                     "Radiologic technologists work in a variety of healthcare settings, including hospitals, clinics, and imaging centers. They must complete a degree program in radiography and pass certification exams in order to practice. They also participate in ongoing education and professional development to stay up to date with advances in their field.")
         binding.rcvProffesionList.adapter = rcvProffesionListAdapter(proffessionList, proffessionDescriptorList, proffessionLongDescriptorList,  ::onContentClick, ::searchProfession)
         binding.rcvProffesionList.layoutManager = LinearLayoutManager(requireContext())
+        binding.detailTextView.setOnClickListener {
+            findNavController().navigate(R.id.action_suggestedProfessionsFragment_to_analysisFragment)
+        }
         return binding.root
     }
     private fun onContentClick(proffessionDescription: String) {
