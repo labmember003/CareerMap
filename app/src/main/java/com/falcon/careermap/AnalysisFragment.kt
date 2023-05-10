@@ -25,15 +25,16 @@ class AnalysisFragment : Fragment() {
         val pieChart = binding.chart
         // Create a data set for the chart
         val pieEntries = listOf(
-            PieEntry(20f, "Label 1"),
-            PieEntry(30f, "Label 2"),
-            PieEntry(50f, "Label 3")
+            PieEntry(20f, "Radiologic Technologist"),
+            PieEntry(30f, "Audiologist"),
+            PieEntry(50f, "Dentist")
         )
-        val pieDataSet = PieDataSet(pieEntries, "Chart Title")
+        val pieDataSet = PieDataSet(pieEntries, "       Professions")
         // Set the colors for the chart slices
         pieDataSet.colors = listOf(Color.RED, Color.GREEN, Color.BLUE)
         // Create a PieData object with the data set
         val pieData = PieData(pieDataSet)
+        pieChart.setCenterTextColor(Color.RED)
         // Set the data for the chart
         pieChart.data = pieData
         // Refresh the chart
@@ -47,7 +48,7 @@ class AnalysisFragment : Fragment() {
             BarEntry(1f, 30f),
             BarEntry(2f, 50f)
         )
-        val dataSet = BarDataSet(entries, "Chart Title")
+        val dataSet = BarDataSet(entries, "Professions")
         // Set the colors for the chart bars
         dataSet.colors = listOf(Color.RED, Color.GREEN, Color.BLUE)
         // Create a BarData object with the data set
@@ -61,7 +62,7 @@ class AnalysisFragment : Fragment() {
 
 
         // Set the x-axis labels for the chart
-        val labels = listOf("Label 1", "Label 2", "Label 3")
+        val labels = listOf("Radiologic Technologist", "Audiologist", "Dentist")
         val xAxis = chart.xAxis
         xAxis.valueFormatter = IndexAxisValueFormatter(labels)
         // Set the y-axis label text and color
