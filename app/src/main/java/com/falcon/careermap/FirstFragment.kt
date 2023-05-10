@@ -32,9 +32,32 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
-        val questionList = arguments?.getStringArrayList("questionList")
-        val answerList = arguments?.getSerializable("answerList") as? ArrayList<ArrayList<String>>
+        var questionList = arguments?.getStringArrayList("questionList")
+        var answerList = arguments?.getSerializable("answerList") as? ArrayList<ArrayList<String>>
         val instanceNumber = arguments?.getInt("instanceNumber")
+        when (instanceNumber) {
+            1 -> {
+                questionList = arrayListOf("Q1 What is your preferred work style?", "Q2 Do you enjoy problem-solving activities?", "Q3 How do you handle pressure?")
+                val answerList1 = arrayListOf("Working Alone", "Working in a Group", "Both")
+                val answerList2 = arrayListOf("Yes", "No", "Sometimes")
+                val answerList3 = arrayListOf("I work well under pressure", "I get anxious under pressure", "I do not like working under pressure")
+                answerList = arrayListOf(answerList1, answerList2, answerList3)
+            }
+            2 -> {
+                questionList = arrayListOf("Q4 Are you comfortable with public speaking?", "Q5 Do you enjoy working with numbers?", "Q6 How do you prefer to learn new things?")
+                val answerList1 = arrayListOf("Yes", "No", "Sometimes")
+                val answerList2 = arrayListOf("Yes", "No", "Sometimes")
+                val answerList3 = arrayListOf("Through hands-on experience", "Through reading and research", "Through group discussions")
+                answerList = arrayListOf(answerList1, answerList2, answerList3)
+            }
+            3 -> {
+                questionList = arrayListOf("Q7 Are you interested in creative activities such as writing, art or music?", "Q8 What is your preferred work environment?", "Q9 How do you like to work on projects?")
+                val answerList1 = arrayListOf("Yes", "No", "Sometimes")
+                val answerList2 = arrayListOf("Outdoors", "Indoors", "Both")
+                val answerList3 = arrayListOf("Independently", "Collaboratively", "Both")
+                answerList = arrayListOf(answerList1, answerList2, answerList3)
+            }
+        }
         binding.questionRCV.adapter = answerList?.let {
             RcvQuestionnaire(questionList?:ArrayList(listOf("")),
                 it, requireContext().applicationContext, ::onItemSelect)
