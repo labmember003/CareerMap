@@ -1,16 +1,20 @@
 package com.falcon.careermap
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.falcon.careermap.databinding.FragmentLoginBinding
+import com.falcon.careermap.databinding.FragmentSignUpBinding
 
 
-class LoginFragment : Fragment() {
-    private var _binding: FragmentLoginBinding? = null
+/**
+ * A simple [Fragment] subclass as the second destination in the navigation.
+ */
+class SecondFragment : Fragment() {
+    private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
 
 
@@ -18,7 +22,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
 //        findNavController().navigate(R.id.action_loginFragment_to_analysisFragment)
         val questionList = arrayListOf("Q1: Which of the following fields interests you the most?",
             "Q2: Do you enjoy working with people directly or indirectly?",
@@ -47,10 +51,7 @@ class LoginFragment : Fragment() {
         bundle.putSerializable("answerList", answerList)
         bundle.putInt("instanceNumber", 1)
         binding.loginButton.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_FirstFragment, bundle)
-        }
-        binding.signUpText.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_secondFragment)
+            findNavController().navigate(R.id.action_secondFragment_to_FirstFragment, bundle)
         }
         return binding.root
     }

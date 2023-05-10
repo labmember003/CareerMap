@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             composeEmail("Regarding App " + getString(R.string.app_name))
         }
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.loginFragment) {
+            if(destination.id == R.id.loginFragment || destination.id == R.id.secondFragment) {
                 binding.toolbar.visibility = View.GONE
             } else {
                 binding.toolbar.visibility = View.VISIBLE
